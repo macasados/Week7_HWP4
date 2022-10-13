@@ -1,18 +1,27 @@
 #include <iostream>
 
 using namespace std;
-fillArray(int list[], int listSize);
 
+void fillArray(int list[], int listSize);
+
+const int Array_Size = 5;
+  
 int main() {
-  int Array_Size;
-  cin >> Array_Size;
 
   int listA[Array_Size] = {0};
   
   fillArray(listA, Array_Size);
-  cout << "Display Array A";
-  printArray(listA, Array_Size);
+
+  
+ 
 }
+
+
+
+
+
+
+
 
 void fillArray(int list[], int listSize){
 
@@ -28,12 +37,14 @@ void fillArray(int list[], int listSize){
   return;
 }
 
-void printArray(const int list[], int listSize) {
-  int index;
+int indexLargestElement(const int list [], int listSize){
+int maxIndex = 0; //default assumption is to assume the largest value is in the largest spot
 
-  for (index = 0; index < listSize; index ++)
-    cout << list[index] << " ";
+    for (int index = 1; index < listSize; index++){
+      if (list[maxIndex] < list[index])
+        maxIndex = index;
+    }
 
-  cout << endl;
-  return;
+  
+  return maxIndex;
 }
